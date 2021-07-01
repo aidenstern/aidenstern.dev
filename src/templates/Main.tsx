@@ -40,7 +40,9 @@ const Main = (props: IMainProps) => (
             <li className="mr-6">
               <a
                 className="text-gray-700 border-none hover:text-gray-900"
-                href="https://github.com/ixartz/Next-js-Boilerplate"
+                href="https://github.com/aidenstern/aidenstern.dev"
+                target="_blank"
+                rel="noreferrer"
               >
                 GitHub
               </a>
