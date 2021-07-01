@@ -1,8 +1,8 @@
-type ProjectType = {
+type PostType = {
   slug: string;
   title: string;
   date: string;
   excerpt: string;
 };
 
-export default ProjectType;
+export default PostType;

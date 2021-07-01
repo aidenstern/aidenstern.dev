@@ -1,12 +1,12 @@
 import Card from 'src/components/card';
-import { getAllProjects } from 'src/lib/projects';
-import Project from 'src/types/project';
+import { getAllPosts } from 'src/lib/posts';
+import Post from 'src/types/post';
 
 import { Meta } from '../layout/Meta';
 import { Main } from '../templates/Main';
 
 type IndexProps = {
-  allProjects: Project[];
+  allProjects: Post[];
 };
 
 const Index = ({ allProjects }: IndexProps) => {
@@ -38,7 +38,7 @@ const Index = ({ allProjects }: IndexProps) => {
 export default Index;
 
 export const getStaticProps = async () => {
-  const allProjects = getAllProjects(['title', 'date', 'slug', 'excerpt']);
+  const allProjects = getAllPosts(['title', 'date', 'slug', 'excerpt']);
 
   return {
     props: { allProjects },
