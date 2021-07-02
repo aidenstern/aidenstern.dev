@@ -9,20 +9,27 @@ function TopBar() {
   return (
     <div className="block mb-6 md:flex">
       <div className="w-full" style={{ maxWidth: '150px' }}>
-        <div className="rounded-full transform transition-all duration-150 hover:scale-105">
-          <Image
-            className="rounded-full"
-            width="150"
-            height="150"
-            src="/assets/images/profile.jpg"
-            alt="profile avatar"
-          />
-        </div>
+        <Link href="/">
+          <a>
+            <div className="transform transition-all duration-150 hover:scale-105">
+              <Image
+                className="rounded-full"
+                width="150"
+                height="150"
+                src="/assets/images/profile.jpg"
+                alt="profile avatar"
+              />
+            </div>
+          </a>
+        </Link>
       </div>
       <div className="flex-none pt-6 md:pt-1 md:flex-1 md:pl-20">
-        <div className="text-5xl text-gray-900 font-bold leading-tight hover:text-black">
-          {APP_CONFIG.title}
-        </div>
+        <Link href="/">
+          <a className="text-5xl text-gray-900 font-bold leading-tight hover:text-black">
+            {APP_CONFIG.title}
+          </a>
+        </Link>
+
         <div className="text-gray-600">{APP_CONFIG.description}</div>
         <div>
           <ul className="mt-6 uppercase tracking-wider">
