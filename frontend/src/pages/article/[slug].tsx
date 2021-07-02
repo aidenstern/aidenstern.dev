@@ -11,12 +11,12 @@ type ArticleProps = {
 };
 
 const Article = ({ article }: ArticleProps) => {
-  const imageUrl = getStrapiMedia(article.image);
+  const imageUrl = getStrapiMedia(article.images);
 
   const seo = {
     title: article.title,
     description: article.description,
-    image: article.image,
+    image: article.images[0],
   };
 
   return (
