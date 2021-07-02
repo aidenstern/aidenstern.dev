@@ -4,12 +4,12 @@ import Header from 'src/components/header';
 
 import { AppConfig } from '../utils/AppConfig';
 
-type IMainProps = {
+type MainProps = {
   meta: ReactNode;
   children: ReactNode;
 };
 
-const Main = (props: IMainProps) => (
+const Main = (props: MainProps) => (
   <div className="relative">
     {props.meta}
     <div className="p-8 relative max-w-screen-xl xs:p-24">
