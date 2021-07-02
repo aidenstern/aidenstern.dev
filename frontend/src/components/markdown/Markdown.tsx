@@ -16,6 +16,4 @@ function Markdown(props: MarkdownProps) {
   );
 }
 
-Markdown.propTypes = {};
-
 export default Markdown;

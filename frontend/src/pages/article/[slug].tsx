@@ -1,7 +1,6 @@
 import React from 'react';
 
 import Markdown from 'src/components/markdown';
-import Seo from 'src/components/seo';
 import Main from 'src/layout/main';
 
 import { fetchAPI } from '../../lib/api';
@@ -15,14 +14,13 @@ const Article = ({ article }: ArticleProps) => {
   const imageUrl = getStrapiMedia(article.image);
 
   const seo = {
-    metaTitle: article.title,
-    metaDescription: article.description,
-    shareImage: article.image,
-    article: true,
+    title: article.title,
+    description: article.description,
+    image: article.image,
   };
+
   return (
-    <Main>
-      <Seo seo={seo} />
+    <Main meta={seo}>
       <div id="banner" data-src={imageUrl} data-srcset={imageUrl} data-uk-img>
         <h1 className="mt-16 text-4xl text-gray-900 font-bold">
           {article.title}
