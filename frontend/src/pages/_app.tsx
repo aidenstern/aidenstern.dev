@@ -6,7 +6,11 @@ import { fetchAPI } from '../lib/api';
 
 import '../styles/main.css';
 
-export const GlobalContext = createContext({});
+type GlobalContextType = {
+  [key: string]: any;
+};
+
+export const GlobalContext = createContext({} as GlobalContextType);
 
 const MyApp = ({ Component, pageProps }: AppProps) => {
   return (
