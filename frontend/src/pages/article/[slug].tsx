@@ -4,24 +4,20 @@ import Markdown from 'src/components/markdown';
 import Main from 'src/layout/main';
 
 import { fetchAPI } from '../../lib/api';
-import { getStrapiMedia } from '../../lib/media';
 
 type ArticleProps = {
   article: any;
 };
 
 const Article = ({ article }: ArticleProps) => {
-  const imageUrl = getStrapiMedia(article.images);
-
   const seo = {
     title: article.title,
     description: article.description,
-    image: article.images[0],
   };
 
   return (
     <Main meta={seo}>
-      <div id="banner" data-src={imageUrl} data-srcset={imageUrl} data-uk-img>
+      <div>
         <h1 className="mt-16 text-4xl text-gray-900 font-bold">
           {article.title}
         </h1>
