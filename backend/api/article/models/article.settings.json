@@ -12,8 +12,8 @@
   },
   "pluginOptions": {},
   "attributes": {
-    "image": {
-      "model": "file",
+    "images": {
+      "collection": "file",
       "via": "related",
       "allowedTypes": [
         "images",
@@ -24,20 +24,23 @@
       "required": false,
       "pluginOptions": {}
     },
-    "date": {
-      "type": "datetime"
-    },
     "content": {
-      "type": "richtext"
+      "type": "richtext",
+      "required": true
     },
     "description": {
-      "type": "text"
+      "type": "text",
+      "required": true
     },
     "title": {
-      "type": "string"
+      "type": "string",
+      "required": true,
+      "unique": true
     },
     "slug": {
-      "type": "uid"
+      "type": "uid",
+      "targetField": "title",
+      "required": true
     },
     "status": {
       "type": "enumeration",
@@ -45,7 +48,9 @@
         "draft",
         "published",
         "archived"
-      ]
+      ],
+      "required": true,
+      "default": "draft"
     }
   }
 }
