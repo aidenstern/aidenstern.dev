@@ -12,7 +12,7 @@ type SeoType = {
   article: boolean;
 };
 
-const Seo = (seo: SeoType) => {
+const Seo = ({ seo }: { seo: SeoType }) => {
   const { defaultSeo, siteName } = useContext(GlobalContext);
   const seoWithDefaults = {
     ...defaultSeo,
