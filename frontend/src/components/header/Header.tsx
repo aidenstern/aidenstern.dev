@@ -1,6 +1,7 @@
 import React from 'react';
 
 import Image from 'next/image';
+import Link from 'next/link';
 
 import { AppConfig } from 'src/utils/AppConfig';
 
@@ -48,14 +49,14 @@ function TopBar() {
             </li>
 
             <li className="inline list-none pr-4">
-              <a
-                className="inline-block py-2 font-semibold text-xs text-gray-600 hover:text-black"
-                href="https://github.com/aidenstern/aidenstern.dev"
-                target="_blank"
-                rel="noreferrer"
-              >
-                Blog
-              </a>
+              <Link href="/blog">
+                <a
+                  className="inline-block py-2 font-semibold text-xs text-gray-600 hover:text-black"
+                  rel="noreferrer"
+                >
+                  Blog
+                </a>
+              </Link>
             </li>
           </ul>
         </div>
