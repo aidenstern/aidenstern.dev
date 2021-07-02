@@ -1,7 +1,6 @@
 import React from 'react';
 
-import ReactMarkdown from 'react-markdown';
-
+import Markdown from 'src/components/markdown';
 import Seo from 'src/components/seo';
 import { Meta } from 'src/layout/Meta';
 import { Main } from 'src/templates/Main';
@@ -41,7 +40,7 @@ const Article = ({ article }: ArticleProps) => {
       <hr className="mt-8 max-w-150 border-t-2" />
 
       <div className="my-8">
-        <ReactMarkdown>{article.content}</ReactMarkdown>
+        <Markdown content={article.content} />
       </div>
     </Main>
   );

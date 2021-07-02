@@ -15,10 +15,10 @@ module.exports = {
       '5xl': '3rem',
       '6xl': '4rem',
     },
-    maxWidth: {
-      xs: '150px',
-    },
     extend: {
+      maxWidth: {
+        xs: '150px',
+      },
       colors: {
         gray: {
           100: '#f7fafc',

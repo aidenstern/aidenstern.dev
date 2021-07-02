@@ -1,0 +1,76 @@
+.markdown {
+  @apply text-gray-600 max-w-screen-md leading-7;
+}
+
+.markdown a {
+  @apply text-black;
+  @apply underline;
+}
+
+.markdown p,
+
+.markdown ul,
+.markdown ol {
+  @apply mb-5;
+  @apply ml-10;
+}
+
+.markdown ul li {
+  @apply list-disc;
+}
+
+.markdown ol li {
+  @apply list-decimal;
+}
+
+.markdown h1 {
+  @apply text-4xl;
+  @apply text-gray-900;
+  @apply font-bold;
+  @apply mb-4;
+}
+
+.markdown h2 {
+  @apply text-2xl;
+  @apply text-gray-900;
+  @apply font-bold;
+  @apply mt-8;
+  @apply mb-4;
+}
+
+.markdown h3 {
+  @apply text-xl;
+  @apply text-gray-900;
+  @apply font-bold;
+  @apply mt-8;
+  @apply mb-4;
+}
+
+.markdown h4 {
+  @apply text-gray-900;
+  @apply font-bold;
+  @apply my-4;
+}
+
+.markdown h5 {
+  @apply text-gray-900;
+  @apply text-sm;
+  @apply font-bold;
+  @apply my-4;
+}
+
+.markdown h6 {
+  @apply text-gray-700;
+  @apply text-xs;
+  @apply font-bold;
+  @apply my-3;
+}
+
+.markdown blockquote {
+  @apply pl-5;
+  @apply border-l-4;
+}
+
+.markdown hr {
+  @apply my-5;
+}
