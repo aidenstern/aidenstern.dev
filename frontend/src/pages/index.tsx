@@ -1,10 +1,8 @@
-import { Meta } from 'src/layout/Meta';
-import { Main } from 'src/templates/Main';
-
 import Card from 'src/components/card';
+import { Meta } from 'src/layout/Meta';
 import { getAllPosts } from 'src/lib/posts';
+import { Main } from 'src/templates/Main';
 import Post from 'src/types/post';
-
 
 type IndexProps = {
   allProjects: Post[];
