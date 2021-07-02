@@ -3,7 +3,6 @@ import React from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 
-import profilePic from 'public/assets/images/nextjs-starter-banner.png';
 import { AppConfig } from 'src/utils/AppConfig';
 
 function TopBar() {
@@ -16,7 +15,7 @@ function TopBar() {
               className="rounded-full"
               width="150"
               height="150"
-              src={profilePic}
+              src="/assets/images/nextjs-starter-banner.png"
             />
           </div>
         </div>
