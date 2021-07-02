@@ -1,6 +1,6 @@
 export const AppConfig = {
-  site_name: 'aidenstern.dev',
+  site_name: 'Aiden Stern | Software Engineer',
   title: 'Aiden Stern',
-  description: 'Personal Website',
+  description: 'Software Engineer based in Maryland.',
   locale: 'en',
 };

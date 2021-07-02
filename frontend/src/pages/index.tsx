@@ -1,11 +1,14 @@
 import Section from 'src/components/section';
 import { Meta } from 'src/layout/Meta';
 import { Main } from 'src/templates/Main';
+import { AppConfig } from 'src/utils/AppConfig';
 
 const Index = () => {
   return (
     <Main
-      meta={<Meta title="aiden-stern.dev" description="Personal Website" />}
+      meta={
+        <Meta title={AppConfig.site_name} description={AppConfig.description} />
+      }
     >
       <Section>
         <div className="pb-6 md:w-full md:max-w-xs md:p-0">
