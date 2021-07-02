@@ -2,9 +2,7 @@ import React from 'react';
 
 import Markdown from 'src/components/markdown';
 import Seo from 'src/components/seo';
-import { Meta } from 'src/layout/Meta';
-import Main from 'src/templates/main';
-import { AppConfig } from 'src/utils/AppConfig';
+import Main from 'src/layout/main';
 
 import { fetchAPI } from '../../lib/api';
 import { getStrapiMedia } from '../../lib/media';
@@ -23,11 +21,7 @@ const Article = ({ article }: ArticleProps) => {
     article: true,
   };
   return (
-    <Main
-      meta={
-        <Meta title={AppConfig.site_name} description={AppConfig.description} />
-      }
-    >
+    <Main>
       <Seo seo={seo} />
       <div id="banner" data-src={imageUrl} data-srcset={imageUrl} data-uk-img>
         <h1 className="mt-16 text-4xl text-gray-900 font-bold">

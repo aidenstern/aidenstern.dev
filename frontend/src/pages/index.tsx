@@ -1,15 +1,9 @@
 import Section from 'src/components/section';
-import { Meta } from 'src/layout/Meta';
-import Main from 'src/templates/main';
-import { AppConfig } from 'src/utils/AppConfig';
+import Main from 'src/layout/main';
 
 const Index = () => {
   return (
-    <Main
-      meta={
-        <Meta title={AppConfig.site_name} description={AppConfig.description} />
-      }
-    >
+    <Main>
       <Section>
         <div className="pb-6 md:w-full md:max-w-xs md:p-0">
           <h2 className="font-xs font-light tracking-widest text-sm text-gray-600 leading-normal uppercase">

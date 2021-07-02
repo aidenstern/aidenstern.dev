@@ -3,10 +3,8 @@ import React from 'react';
 import Link from 'next/link';
 
 import Section from 'src/components/section';
-import { Meta } from 'src/layout/Meta';
+import Main from 'src/layout/main';
 import { fetchAPI } from 'src/lib/api';
-import Main from 'src/templates/main';
-import { AppConfig } from 'src/utils/AppConfig';
 
 type BlogProps = {
   articles: any;
@@ -14,12 +12,7 @@ type BlogProps = {
 
 export const Blog = ({ articles }: BlogProps) => {
   return (
-    <Main
-      meta={
-        <Meta title={AppConfig.site_name} description={AppConfig.description} />
-      }
-    >
-      {' '}
+    <Main>
       <Section>
         <h2 className="font-xs font-light tracking-widest text-sm text-gray-600 leading-normal uppercase">
           All Blog Posts

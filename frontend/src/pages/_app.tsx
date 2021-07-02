@@ -1,9 +1,11 @@
 import { createContext } from 'react';
 
+import { DefaultSeo } from 'next-seo';
 import App, { AppProps } from 'next/app';
 
-import { fetchAPI } from '../lib/api';
+import { DEFAULT_SEO } from 'src/utils';
 
+import { fetchAPI } from '../lib/api';
 import '../styles/main.css';
 
 type GlobalContextType = {
@@ -14,10 +16,13 @@ export const GlobalContext = createContext({} as GlobalContextType);
 
 const MyApp = ({ Component, pageProps }: AppProps) => {
   return (
-    <GlobalContext.Provider value={global}>
-      {/* eslint-disable react/jsx-props-no-spreading */}
-      <Component {...pageProps} />
-    </GlobalContext.Provider>
+    <>
+      <DefaultSeo {...DEFAULT_SEO} />
+      <GlobalContext.Provider value={global}>
+        {/* eslint-disable react/jsx-props-no-spreading */}
+        <Component {...pageProps} />
+      </GlobalContext.Provider>
+    </>
   );
 };
 

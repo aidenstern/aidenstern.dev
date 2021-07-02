@@ -3,14 +3,13 @@ import React from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 
-import { AppConfig } from 'src/utils/AppConfig';
+import { APP_CONFIG } from 'src/utils/app-config';
 
 function TopBar() {
   return (
     <div className="block mb-6 md:flex">
       <div className="w-full" style={{ maxWidth: '150px' }}>
         <div className="rounded-full transform transition-all duration-150 hover:scale-105">
-          {/* eslint-disable-next-line @next/next/no-img-element */}
           <Image
             className="rounded-full"
             width="150"
@@ -22,9 +21,9 @@ function TopBar() {
       </div>
       <div className="flex-none pt-6 md:pt-1 md:flex-1 md:pl-20">
         <div className="text-5xl text-gray-900 font-bold leading-tight hover:text-black">
-          {AppConfig.title}
+          {APP_CONFIG.title}
         </div>
-        <div className="text-gray-600">{AppConfig.description}</div>
+        <div className="text-gray-600">{APP_CONFIG.description}</div>
         <div>
           <ul className="mt-6 uppercase tracking-wider">
             <li className="inline list-none pr-4">
