@@ -15,7 +15,7 @@ function TopBar() {
             className="rounded-full"
             width="150"
             height="150"
-            src="/assets/images/nextjs-starter-banner.png"
+            src="/assets/images/profile.jpg"
             alt="profile avatar"
           />
         </div>
