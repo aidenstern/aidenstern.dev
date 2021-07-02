@@ -1,45 +1,31 @@
-import Card from 'src/components/card';
+import Section from 'src/components/section';
 import { Meta } from 'src/layout/Meta';
-import { getAllPosts } from 'src/lib/posts';
 import { Main } from 'src/templates/Main';
-import Post from 'src/types/post';
 
-type IndexProps = {
-  allProjects: Post[];
-};
-
-const Index = ({ allProjects }: IndexProps) => {
+const Index = () => {
   return (
     <Main
       meta={<Meta title="aiden-stern.dev" description="Personal Website" />}
     >
-      <p>
-        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Harum earum
-        nam facilis sint doloremque deserunt perferendis quam cum odit
-        necessitatibus cupiditate repellat excepturi nesciunt, possimus facere,
-        quasi voluptatem. Enim, labore.
-      </p>
-      {allProjects &&
-        allProjects.map((project) => (
-          <Card
-            key={project.slug}
-            title={project.title}
-            date={project.date}
-            link={project.slug}
-            body={project.excerpt}
-            footer={project.date}
-          />
-        ))}
+      <Section>
+        <div className="pb-6 md:w-full md:max-w-xs md:p-0">
+          <h2 className="font-xs font-light tracking-widest text-sm text-gray-600 leading-normal uppercase">
+            About Me
+          </h2>
+        </div>
+        <div className="flex-none text-lg text-gray-600 font-light bg-white md:flex-1 md:pl-20">
+          <div className="mb-6">
+            <p>
+              Lorem, ipsum dolor sit amet consectetur adipisicing elit. Delectus
+              debitis possimus sunt, perferendis, optio voluptates id odit, quis
+              dolorem omnis veniam! Sint, nostrum perspiciatis inventore facere
+              dicta atque provident? Minus.
+            </p>
+          </div>
+        </div>
+      </Section>
     </Main>
   );
 };
 
 export default Index;
-
-export const getStaticProps = async () => {
-  const allProjects = getAllPosts(['title', 'date', 'slug', 'excerpt']);
-
-  return {
-    props: { allProjects },
-  };
-};

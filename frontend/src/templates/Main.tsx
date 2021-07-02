@@ -10,11 +10,11 @@ type IMainProps = {
 };
 
 const Main = (props: IMainProps) => (
-  <div className="antialiased w-full text-gray-700">
+  <div className="relative">
     {props.meta}
-    <div className="max-w-screen-md mx-auto">
+    <div className="p-8 relative max-w-screen-xl xs:p-24">
       <Header />
-      <div className="py-5 text-xl content">{props.children}</div>
+      {props.children}
 
       <div className="border-t border-gray-300 text-center py-8 text-sm">
         © Copyright {new Date().getFullYear()} {AppConfig.title}

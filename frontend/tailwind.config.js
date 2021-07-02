@@ -15,6 +15,9 @@ module.exports = {
       '5xl': '3rem',
       '6xl': '4rem',
     },
+    maxWidth: {
+      xs: '150px',
+    },
     extend: {
       colors: {
         gray: {
@@ -39,6 +42,9 @@ module.exports = {
           800: '#2c5282',
           900: '#2a4365',
         },
+      },
+      screens: {
+        xs: '480px',
       },
     },
   },
