@@ -1,6 +1,6 @@
 import Section from 'src/components/section';
 import { Meta } from 'src/layout/Meta';
-import { Main } from 'src/templates/Main';
+import Main from 'src/templates/main';
 import { AppConfig } from 'src/utils/AppConfig';
 
 const Index = () => {

@@ -5,12 +5,13 @@ import Link from 'next/link';
 import Section from 'src/components/section';
 import { Meta } from 'src/layout/Meta';
 import { fetchAPI } from 'src/lib/api';
-import { Main } from 'src/templates/Main';
+import Main from 'src/templates/main';
 import { AppConfig } from 'src/utils/AppConfig';
 
 type BlogProps = {
   articles: any;
 };
+
 export const Blog = ({ articles }: BlogProps) => {
   return (
     <Main

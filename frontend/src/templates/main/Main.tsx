@@ -2,7 +2,7 @@ import { ReactNode } from 'react';
 
 import Header from 'src/components/header';
 
-import { AppConfig } from '../utils/AppConfig';
+import { AppConfig } from '../../utils/AppConfig';
 
 type MainProps = {
   meta: ReactNode;
@@ -23,4 +23,4 @@ const Main = (props: MainProps) => (
   </div>
 );
 
-export { Main };
+export default Main;

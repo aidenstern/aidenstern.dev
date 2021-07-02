@@ -3,7 +3,7 @@ import React from 'react';
 import Markdown from 'src/components/markdown';
 import Seo from 'src/components/seo';
 import { Meta } from 'src/layout/Meta';
-import { Main } from 'src/templates/Main';
+import Main from 'src/templates/main';
 import { AppConfig } from 'src/utils/AppConfig';
 
 import { fetchAPI } from '../../lib/api';
