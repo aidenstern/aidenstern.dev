@@ -1,7 +1,6 @@
 import React from 'react';
 
 import Image from 'next/image';
-import Link from 'next/link';
 
 import { AppConfig } from 'src/utils/AppConfig';
 
@@ -28,27 +27,34 @@ function TopBar() {
         <div>
           <ul className="mt-6 uppercase tracking-wider">
             <li className="inline list-none pr-4">
-              <Link href="/">
-                <a className="text-gray-700 border-none hover:text-gray-900">
-                  Home
-                </a>
-              </Link>
-            </li>
-            <li className="inline list-none pr-4">
-              <Link href="/about/">
-                <a className="text-gray-700 border-none hover:text-gray-900">
-                  About
-                </a>
-              </Link>
-            </li>
-            <li className="inline list-none pr-4">
               <a
-                className="text-gray-700 border-none hover:text-gray-900"
-                href="https://github.com/aidenstern/aidenstern.dev"
+                className="inline-block py-2 font-semibold text-xs text-gray-600 hover:text-black"
+                href="https://github.com/aidenstern"
                 target="_blank"
                 rel="noreferrer"
               >
                 GitHub
+              </a>
+            </li>
+            <li className="inline list-none pr-4">
+              <a
+                className="inline-block py-2 font-semibold text-xs text-gray-600 hover:text-black"
+                href="https://linkedin.com/in/aiden-stern"
+                target="_blank"
+                rel="noreferrer"
+              >
+                LinkedIn
+              </a>
+            </li>
+
+            <li className="inline list-none pr-4">
+              <a
+                className="inline-block py-2 font-semibold text-xs text-gray-600 hover:text-black"
+                href="https://github.com/aidenstern/aidenstern.dev"
+                target="_blank"
+                rel="noreferrer"
+              >
+                Blog
               </a>
             </li>
           </ul>
