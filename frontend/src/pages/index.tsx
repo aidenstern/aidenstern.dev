@@ -1,4 +1,5 @@
 import Section from 'src/components/section';
+import SummaryItem from 'src/components/summary-item';
 import Main from 'src/layout/main';
 
 const Index = () => {
@@ -7,42 +8,32 @@ const Index = () => {
       <Section title="About Me">
         <div className="mb-6">
           <p>
-            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Delectus
-            debitis possimus sunt, perferendis, optio voluptates id odit, quis
-            dolorem omnis veniam! Sint, nostrum perspiciatis inventore facere
-            dicta atque provident? Minus.
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Itaque
+            libero architecto aspernatur doloremque officiis culpa totam hic.
+            Aliquam placeat magnam beatae suscipit inventore natus enim quasi,
+            repudiandae, voluptatum aut aliquid.
           </p>
         </div>
       </Section>
       <Section title="Experience">
-        <div className="mb-6">
-          <p>
-            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Delectus
-            debitis possimus sunt, perferendis, optio voluptates id odit, quis
-            dolorem omnis veniam! Sint, nostrum perspiciatis inventore facere
-            dicta atque provident? Minus.
-          </p>
-        </div>
+        <SummaryItem name="Amtrak" description="Angular website development" />
+        <SummaryItem
+          name="General Dynamics Mission Systems"
+          description="Machine learning and neural networks"
+        />
       </Section>
       <Section title="Skills">
-        <div className="mb-6">
-          <p>
-            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Delectus
-            debitis possimus sunt, perferendis, optio voluptates id odit, quis
-            dolorem omnis veniam! Sint, nostrum perspiciatis inventore facere
-            dicta atque provident? Minus.
-          </p>
-        </div>
+        <SummaryItem
+          name="Languages & Frameworks"
+          description="placeholder text"
+        />
+
+        <SummaryItem name="Technologies" description="placeholder text" />
       </Section>
       <Section title="Projects">
-        <div className="mb-6">
-          <p>
-            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Delectus
-            debitis possimus sunt, perferendis, optio voluptates id odit, quis
-            dolorem omnis veniam! Sint, nostrum perspiciatis inventore facere
-            dicta atque provident? Minus.
-          </p>
-        </div>
+        <SummaryItem name="Project One" description="placeholder text" />
+
+        <SummaryItem name="Project Two" description="placeholder text" />
       </Section>
     </Main>
   );

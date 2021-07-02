@@ -1,8 +1,7 @@
 import React from 'react';
 
-import Link from 'next/link';
-
 import Section from 'src/components/section';
+import SummaryItem from 'src/components/summary-item';
 import Main from 'src/layout/main';
 import { fetchAPI } from 'src/lib/api';
 
@@ -15,14 +14,13 @@ export const Blog = ({ articles }: BlogProps) => {
     <Main>
       <Section title="All Blog Posts">
         {articles.map((article: any) => (
-          <div key={article.slug} className="mb-6">
-            <h3 className="font-semibold text-gray-900 pb-1 hover:underline hover:text-black">
-              <Link href={`/article/${article.slug}`}>{article.title}</Link>
-            </h3>
-            <p className="text-md text-gray-600 font-light">
-              {article.description}
-            </p>
-          </div>
+          <SummaryItem
+            key={article.slug}
+            name={article.title}
+            description={article.description}
+            link={`/article/${article.slug}`}
+            internal
+          />
         ))}
       </Section>
     </Main>
