@@ -1,24 +1,22 @@
 import React from 'react';
 
+import Image from 'next/image';
 import Link from 'next/link';
-import { useRouter } from 'next/router';
 
 import { AppConfig } from 'src/utils/AppConfig';
 
 function TopBar() {
-  const router = useRouter();
-
   return (
     <div className="p-8 relative max-w-screen-xl xs:p-24">
       <div className="block mb-6 md:flex">
         <div className="w-full" style={{ maxWidth: '150px' }}>
           <div className="rounded-full transform transition-all duration-150 hover:scale-105">
             {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img
+            <Image
               className="rounded-full"
               width="150"
               height="150"
-              src={`${router.basePath}/assets/images/nextjs-starter-banner.png`}
+              src="/assets/images/nextjs-starter-banner.png"
               alt="profile avatar"
             />
           </div>
