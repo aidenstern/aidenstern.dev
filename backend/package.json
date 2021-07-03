@@ -12,12 +12,10 @@
   },
   "devDependencies": {},
   "dependencies": {
-    "knex": "0.21.18",
+    "dotenv": "10.0.0",
+    "knex": "^0.21.18",
     "mime-types": "^2.1.27",
     "pg": "^8.6.0",
-    "dotenv": "^8.2.0",
-    "fs": "^0.0.1-security",
-    "path": "^0.12.7",
     "rimraf": "^3.0.1",
     "sqlite3": "5.0.0",
     "strapi": "3.6.5",
@@ -30,7 +28,7 @@
     "strapi-plugin-i18n": "3.6.5",
     "strapi-plugin-upload": "3.6.5",
     "strapi-plugin-users-permissions": "3.6.5",
-    "strapi-provider-upload-cloudinary": "3.0.0",
+    "strapi-provider-upload-cloudinary": "3.6.5",
     "strapi-utils": "3.6.5",
     "unzip-stream": "^0.3.0"
   },
