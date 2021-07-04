@@ -28,7 +28,7 @@ export const Blog = ({ articles }: BlogProps) => {
 };
 
 export async function getStaticProps() {
-  const articles = await fetchAPI('/articles');
+  const articles = await fetchAPI('/articles?status=published');
 
   return {
     props: { articles },

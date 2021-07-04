@@ -1,8 +1,10 @@
-import React from 'react';
+/* eslint-disable */
+import React from "react";
 
-import ReactMarkdown from 'react-markdown';
+import ReactMarkdown from "react-markdown";
 
-import markdownStyles from './Markdown.module.css';
+import markdownStyles from "./Markdown.module.css";
+import { getStrapiURL } from "src/lib/api";
 
 type MarkdownProps = {
   content: string;
@@ -10,7 +12,14 @@ type MarkdownProps = {
 
 function Markdown(props: MarkdownProps) {
   return (
-    <ReactMarkdown className={markdownStyles.markdown}>
+    <ReactMarkdown
+      components={{
+        img: ({ ...imgProps }: any) => (
+          <img src={getStrapiURL(imgProps.src)} alt={imgProps.alt} />
+        ),
+      }}
+      className={markdownStyles.markdown}
+    >
       {props.content}
     </ReactMarkdown>
   );
