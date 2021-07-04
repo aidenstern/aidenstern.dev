@@ -1,5 +1,6 @@
 import React from 'react';
 
+import DateFormatter from 'src/components/date';
 import Markdown from 'src/components/markdown';
 import Main from 'src/layout/main';
 
@@ -22,7 +23,7 @@ const Article = ({ article }: ArticleProps) => {
           {article.title}
         </h1>
         <p className="text-gray-600 font-light">
-          Posted on {article.published_at}
+          Posted on <DateFormatter dateString={article.published_at} />
         </p>
       </div>
       <hr className="mt-8 max-w-150 border-t-2" />
