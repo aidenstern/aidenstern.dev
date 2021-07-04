@@ -1,8 +1,14 @@
 import Section from 'src/components/section';
 import SummaryItem from 'src/components/summary-item';
 import Main from 'src/layout/main';
+import { fetchAPI } from 'src/lib/api';
 
-const Index = () => {
+type IndexProps = {
+  homepage: any;
+};
+
+const Index = ({ homepage }: IndexProps) => {
+  const { sections } = homepage;
   return (
     <Main>
       <Section title="About Me">
@@ -15,28 +21,26 @@ const Index = () => {
           </p>
         </div>
       </Section>
-      <Section title="Experience">
-        <SummaryItem name="Amtrak" description="Angular website development" />
-        <SummaryItem
-          name="General Dynamics Mission Systems"
-          description="Machine learning and neural networks"
-        />
-      </Section>
-      <Section title="Skills">
-        <SummaryItem
-          name="Languages & Frameworks"
-          description="placeholder text"
-        />
-
-        <SummaryItem name="Technologies" description="placeholder text" />
-      </Section>
-      <Section title="Projects">
-        <SummaryItem name="Project One" description="placeholder text" />
-
-        <SummaryItem name="Project Two" description="placeholder text" />
-      </Section>
+      {sections.map((section: any) => (
+        <Section key={section.id} title={section.name}>
+          {section.summaryItems.map((summaryItem: any) => (
+            <SummaryItem
+              key={summaryItem.id}
+              name={summaryItem.name}
+              description={summaryItem.description}
+            />
+          ))}
+        </Section>
+      ))}
     </Main>
   );
 };
+
+export async function getServerSideProps() {
+  // Fetch global site settings from Strapi
+  const homepage = await fetchAPI('/homepage');
+  // Pass the data to our page via props
+  return { props: { homepage } };
+}
 
 export default Index;
