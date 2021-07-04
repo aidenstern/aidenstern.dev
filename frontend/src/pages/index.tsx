@@ -2,16 +2,17 @@ import Section from 'src/components/section';
 import SummaryItem from 'src/components/summary-item';
 import Main from 'src/layout/main';
 import { homePageQuery } from 'src/lib/queries';
-import sanityClient from 'src/lib/sanity';
+import { sanityClient } from 'src/lib/sanity.server';
 
 type IndexProps = {
   homepage: any;
+  preview: boolean;
 };
 
-const Index = ({ homepage }: IndexProps) => {
+const Index = ({ homepage, preview }: IndexProps) => {
   const { sections } = homepage;
   return (
-    <Main>
+    <Main preview={preview}>
       <Section title="About Me">
         <div className="mb-6">
           <p>
@@ -37,12 +38,11 @@ const Index = ({ homepage }: IndexProps) => {
   );
 };
 
-export async function getServerSideProps() {
+export async function getStaticProps({ preview = false }) {
   // Fetch global site settings from Strapi
   const homepage = await sanityClient.fetch(homePageQuery);
-  console.log(homepage);
   // Pass the data to our page via props
-  return { props: { homepage: homepage[0] } };
+  return { props: { homepage: homepage[0], preview } };
 }
 
 export default Index;

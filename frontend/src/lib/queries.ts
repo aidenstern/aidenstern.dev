@@ -3,6 +3,7 @@ const articleFields = `
   title,
   date,
   description,
+  publishedAt,
   "slug": slug.current,
 `;
 
@@ -11,20 +12,20 @@ export const indexQuery = `
   ${articleFields}
 }`;
 
-export const postQuery = `
+export const articleQuery = `
 {
-  "post": *[_type == "post" && slug.current == $slug] | order(_updatedAt desc) | [0] {
+  "article": *[_type == "article" && slug.current == $slug] | order(_updatedAt desc) | [0] {
     content,
     ${articleFields}
   }
 }`;
 
-export const postSlugsQuery = `
-*[_type == "post" && defined(slug.current)][].slug.current
+export const articleSlugsQuery = `
+*[_type == "article" && defined(slug.current)][].slug.current
 `;
 
-export const postBySlugQuery = `
-*[_type == "post" && slug.current == $slug][0] {
+export const articleBySlugQuery = `
+*[_type == "article" && slug.current == $slug][0] {
   ${articleFields}
 }
 `;

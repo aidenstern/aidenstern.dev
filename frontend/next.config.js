@@ -9,10 +9,4 @@ module.exports = withBundleAnalyzer({
   basePath: '',
   target: 'serverless',
   reactStrictMode: true,
-  env: {
-    API_URL: process.env.API_URL,
-  },
-  images: {
-    domains: ['localhost', process.env.API_URL],
-  },
 });

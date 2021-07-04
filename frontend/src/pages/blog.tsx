@@ -4,7 +4,7 @@ import Section from 'src/components/section';
 import SummaryItem from 'src/components/summary-item';
 import Main from 'src/layout/main';
 import { indexQuery } from 'src/lib/queries';
-import sanityClient from 'src/lib/sanity';
+import { sanityClient } from 'src/lib/sanity.server';
 
 type BlogProps = {
   articles: any;
@@ -12,11 +12,8 @@ type BlogProps = {
 };
 
 export const Blog = ({ articles, preview }: BlogProps) => {
-  if (preview) {
-    console.log(preview);
-  }
   return (
-    <Main>
+    <Main preview={preview}>
       <Section title="All Blog Posts">
         {articles.map((article: any) => (
           <SummaryItem

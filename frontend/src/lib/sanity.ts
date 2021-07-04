@@ -1,11 +1,14 @@
-import sanityClient from '@sanity/client';
+import {
+  createImageUrlBuilder,
+  createPreviewSubscriptionHook,
+} from 'next-sanity';
 
-const client = sanityClient({
-  projectId: '3t12o89p',
-  dataset: 'production',
-  apiVersion: '2021-07-04', // use current UTC date - see "specifying API version"!
-  useCdn: false, // `false` if you want to ensure fresh data
-  ignoreBrowserTokenWarning: true,
-});
+import { sanityConfig } from './config';
 
-export default client;
+export const imageBuilder = createImageUrlBuilder(sanityConfig);
+
+export const urlForImage = (source: any) =>
+  imageBuilder.image(source).auto('format').fit('max');
+
+export const usePreviewSubscription: any =
+  createPreviewSubscriptionHook(sanityConfig);
