@@ -1,0 +1,19 @@
+{
+  "collectionName": "components_shared_sections",
+  "info": {
+    "name": "section",
+    "icon": "address-card",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "name": {
+      "type": "string"
+    },
+    "summaryItems": {
+      "type": "component",
+      "repeatable": true,
+      "component": "shared.summary-item"
+    }
+  }
+}
