@@ -13,3 +13,8 @@ export async function fetchAPI(path: string) {
   const data = await response.json();
   return data;
 }
+
+export async function getPreviewPostBySlug(slug: string) {
+  const data = await fetchAPI(`/articles?slug=${slug}`);
+  return data[0];
+}
