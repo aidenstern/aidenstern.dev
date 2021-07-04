@@ -1,7 +1,8 @@
 import Section from 'src/components/section';
 import SummaryItem from 'src/components/summary-item';
 import Main from 'src/layout/main';
-import { fetchAPI } from 'src/lib/api';
+import { homePageQuery } from 'src/lib/queries';
+import sanityClient from 'src/lib/sanity';
 
 type IndexProps = {
   homepage: any;
@@ -38,9 +39,10 @@ const Index = ({ homepage }: IndexProps) => {
 
 export async function getServerSideProps() {
   // Fetch global site settings from Strapi
-  const homepage = await fetchAPI('/homepage');
+  const homepage = await sanityClient.fetch(homePageQuery);
+  console.log(homepage);
   // Pass the data to our page via props
-  return { props: { homepage } };
+  return { props: { homepage: homepage[0] } };
 }
 
 export default Index;

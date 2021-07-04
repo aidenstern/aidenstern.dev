@@ -3,13 +3,18 @@ import React from 'react';
 import Section from 'src/components/section';
 import SummaryItem from 'src/components/summary-item';
 import Main from 'src/layout/main';
-import { fetchAPI } from 'src/lib/api';
+import { indexQuery } from 'src/lib/queries';
+import sanityClient from 'src/lib/sanity';
 
 type BlogProps = {
   articles: any;
+  preview: any;
 };
 
-export const Blog = ({ articles }: BlogProps) => {
+export const Blog = ({ articles, preview }: BlogProps) => {
+  if (preview) {
+    console.log(preview);
+  }
   return (
     <Main>
       <Section title="All Blog Posts">
@@ -27,12 +32,10 @@ export const Blog = ({ articles }: BlogProps) => {
   );
 };
 
-export async function getStaticProps() {
-  const articles = await fetchAPI('/articles?status=published');
-
+export async function getStaticProps({ preview = false }) {
+  const articles = await sanityClient.fetch(indexQuery);
   return {
-    props: { articles },
-    revalidate: 1,
+    props: { articles, preview },
   };
 }
 

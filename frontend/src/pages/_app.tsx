@@ -1,11 +1,10 @@
 import { createContext } from 'react';
 
 import { DefaultSeo } from 'next-seo';
-import App, { AppProps } from 'next/app';
+import { AppProps } from 'next/app';
 
 import { DEFAULT_SEO } from 'src/utils';
 
-import { fetchAPI } from '../lib/api';
 import '../styles/main.css';
 
 type GlobalContextType = {
@@ -24,15 +23,6 @@ const MyApp = ({ Component, pageProps }: AppProps) => {
       </GlobalContext.Provider>
     </>
   );
-};
-
-MyApp.getInitialProps = async (ctx: any) => {
-  // Calls page's `getInitialProps` and fills `appProps.pageProps`
-  const appProps = await App.getInitialProps(ctx);
-  // Fetch global site settings from Strapi
-  const global = await fetchAPI('/global');
-  // Pass the data to our page via props
-  return { ...appProps, pageProps: { global } };
 };
 
 export default MyApp;
