@@ -1,11 +1,10 @@
-import React from 'react';
+import React, { useContext, useEffect } from 'react';
 
 import Section from 'src/components/section';
 import SummaryItem from 'src/components/summary-item';
-import MainLayout from 'src/layout/main';
 import { headerQuery, indexQuery } from 'src/lib/queries';
 import { sanityClient } from 'src/lib/sanity.server';
-import PageWithLayoutType from 'src/types/layout';
+import { GlobalContext } from 'src/pages/_app';
 
 type BlogProps = {
   headerProps: any;
@@ -14,6 +13,14 @@ type BlogProps = {
 };
 
 export const Blog = (props: BlogProps) => {
+  const { setState } = useContext(GlobalContext);
+
+  useEffect(() => {
+    if (props.preview) {
+      setState({ preview: true });
+    }
+  });
+
   return (
     <Section title="All Blog Posts">
       {props.articles.map((article: any) => (
@@ -28,8 +35,6 @@ export const Blog = (props: BlogProps) => {
     </Section>
   );
 };
-
-(Blog as PageWithLayoutType).layout = MainLayout;
 
 export async function getStaticProps({ preview = false }) {
   const header = await sanityClient.fetch(headerQuery);

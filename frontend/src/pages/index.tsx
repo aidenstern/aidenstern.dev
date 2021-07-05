@@ -1,18 +1,27 @@
+import { useContext, useEffect } from 'react';
+
 import Section from 'src/components/section';
 import SummaryItem from 'src/components/summary-item';
-import MainLayout from 'src/layout/main';
-import { headerQuery, homePageQuery } from 'src/lib/queries';
+import { homePageQuery } from 'src/lib/queries';
 import { sanityClient } from 'src/lib/sanity.server';
-import PageWithLayoutType from 'src/types/layout';
+
+import { GlobalContext } from './_app';
 
 type IndexProps = {
-  headerProps: any;
   homePage: any;
   preview: boolean;
 };
 
 const Index = (props: IndexProps) => {
-  const { homePage } = props;
+  const { setState } = useContext(GlobalContext);
+  const { homePage, preview } = props;
+
+  useEffect(() => {
+    if (preview) {
+      setState({ preview: true });
+    }
+  });
+
   return (
     <>
       <Section title={homePage.title}>
@@ -35,12 +44,9 @@ const Index = (props: IndexProps) => {
   );
 };
 
-(Index as PageWithLayoutType).layout = MainLayout;
-
 export async function getStaticProps({ preview = false }) {
-  const header = await sanityClient.fetch(headerQuery);
   const homePage = await sanityClient.fetch(homePageQuery);
-  return { props: { headerProps: header, homePage, preview } };
+  return { props: { homePage, preview } };
 }
 
 export default Index;

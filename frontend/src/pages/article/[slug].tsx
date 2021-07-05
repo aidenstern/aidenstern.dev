@@ -1,25 +1,31 @@
-import React from 'react';
+import React, { useContext, useEffect } from 'react';
 
 import ErrorPage from 'next/error';
 import { useRouter } from 'next/router';
 
 import DateFormatter from 'src/components/date';
 import Markdown from 'src/components/markdown';
-import MainLayout from 'src/layout/main';
-import { articleQuery, articleSlugsQuery, headerQuery } from 'src/lib/queries';
+import { articleQuery, articleSlugsQuery } from 'src/lib/queries';
 import { usePreviewSubscription } from 'src/lib/sanity';
 import { sanityClient, getClient } from 'src/lib/sanity.server';
-import PageWithLayoutType from 'src/types/layout';
+
+import { GlobalContext } from '../_app';
 
 type ArticleProps = {
-  headerProps: any;
   data: any;
   preview: boolean;
 };
 
 const Article = (props: ArticleProps) => {
   const router = useRouter();
+  const { setState } = useContext(GlobalContext);
   const { data = {}, preview } = props;
+
+  useEffect(() => {
+    if (props.preview) {
+      setState({ preview: true });
+    }
+  });
 
   const slug = data?.article?.slug;
   const {
@@ -53,8 +59,6 @@ const Article = (props: ArticleProps) => {
   );
 };
 
-(Article as PageWithLayoutType).layout = MainLayout;
-
 export async function getStaticPaths() {
   const paths = await sanityClient.fetch(articleSlugsQuery);
   return {
@@ -66,13 +70,12 @@ export async function getStaticPaths() {
 }
 
 export async function getStaticProps({ params, preview = false }: any) {
-  const header = await sanityClient.fetch(headerQuery);
   const article = await getClient(preview).fetch(articleQuery, {
     slug: params.slug,
   });
 
   return {
-    props: { headerProps: header, data: article, preview },
+    props: { data: article, preview },
     revalidate: 1,
   };
 }

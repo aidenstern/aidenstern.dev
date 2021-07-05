@@ -7,7 +7,7 @@ import Header from 'src/components/header';
 
 type MainLayoutProps = {
   meta?: NextSeoProps;
-  preview: boolean;
+  preview?: boolean;
   headerProps: any;
   children: ReactNode;
 };
@@ -17,7 +17,7 @@ const MainLayout = (props: MainLayoutProps) => {
   return (
     <>
       {props.meta ? <NextSeo {...props.meta} /> : <></>}
-      <Alert preview={props.preview} />
+      <Alert preview={props.preview ? props.preview : false} />
       <div className="relative">
         <div className="p-8 relative max-w-screen-xl xs:p-24">
           <Header
