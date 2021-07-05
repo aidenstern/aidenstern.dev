@@ -1,7 +1,4 @@
 [build]
   base = "frontend/"
   publish = "out/"
-  command = "npm run build"
-
-[template.environment]
-  API_URL = "API_URL"
+  command = "npm run build-prod"
