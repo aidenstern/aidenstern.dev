@@ -3,7 +3,13 @@ const withBundleAnalyzer = require('@next/bundle-analyzer')({
   enabled: process.env.ANALYZE === 'true',
 });
 
-const client = require('./src/lib/sanity.server.ts').sanityClient;
+const sanityClient = require('@sanity/client');
+
+const client = sanityClient({
+  dataset: process.env.NEXT_PUBLIC_SANITY_DATASET || 'production',
+  projectId: process.env.NEXT_PUBLIC_SANITY_PROJECT_ID || '',
+  useCdn: process.env.NODE_ENV === 'production',
+});
 
 module.exports = withBundleAnalyzer({
   poweredByHeader: false,
