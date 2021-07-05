@@ -31,11 +31,11 @@ export default () =>
             .items([
               S.listItem()
                 .title("Header")
-                .child(S.document().schemaType("header").documentId("header")),
+                .child(S.document().title("Home Page").schemaType("header").documentId("header")),
               S.listItem()
                 .title("Home Page")
                 .child(
-                  S.document().schemaType("homePage").documentId("homePage")
+                  S.document().title("Home Page").schemaType("homePage").documentId("homePage")
                 ),
             ])
         ),

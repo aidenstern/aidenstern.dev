@@ -12,15 +12,10 @@ export default {
       description: "What's the title of the homepage hero?",
     },
     {
-      name: "subtitle",
-      title: "Home page subtitle",
-      type: "string",
-      description: "What's the subtitle of the homepage hero?",
-    },
-    {
-      name: "image",
-      title: "Homepage image",
-      type: "image",
+      name: "description",
+      title: "Home page description",
+      type: "text",
+      description: "What's the text of the homepage hero?",
     },
     {
       name: "sections",
@@ -51,7 +46,7 @@ export default {
                     },
                     {
                       name: "description",
-                      type: "string",
+                      type: "text",
                     },
                   ],
                 },
