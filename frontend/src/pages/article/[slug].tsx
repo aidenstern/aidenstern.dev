@@ -17,8 +17,9 @@ type ArticleProps = {
   preview: boolean;
 };
 
-const Article = ({ data = {}, preview }: ArticleProps) => {
+const Article = (props: ArticleProps) => {
   const router = useRouter();
+  const { data = {}, preview } = props;
 
   const slug = data?.article?.slug;
   const {
