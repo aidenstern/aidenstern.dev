@@ -1,14 +1,13 @@
 const articleFields = `
   _id,
   title,
-  date,
   description,
   publishedAt,
   "slug": slug.current,
 `;
 
 export const indexQuery = `
-*[_type == "article"] | order(date desc, _updatedAt desc) {
+*[_type == "article"] | order(publishedAt desc) {
   ${articleFields}
 }`;
 
