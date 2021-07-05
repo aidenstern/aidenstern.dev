@@ -9,4 +9,7 @@ module.exports = withBundleAnalyzer({
   basePath: '',
   target: 'serverless',
   reactStrictMode: true,
+  images: {
+    domains: ['cdn.sanity.io'],
+  },
 });

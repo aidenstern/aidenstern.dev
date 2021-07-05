@@ -1,31 +1,42 @@
 import React from 'react';
 
+import imageUrlBuilder from '@sanity/image-url';
 import Image from 'next/image';
 import Link from 'next/link';
+
+import { sanityClient } from 'src/lib/sanity.server';
 
 type HeaderProps = {
   title: string;
   subtitle: string;
+  logo: any;
   headerLinks: {
     href: string;
     text: string;
   }[];
 };
 
+function urlFor(source: string) {
+  return imageUrlBuilder(sanityClient).image(source);
+}
+
 function Header(props: HeaderProps) {
+  const logoUrl = urlFor(props.logo.asset._ref).url();
   return (
     <div className="block mb-6 md:flex">
       <div className="w-full" style={{ maxWidth: '150px' }}>
         <Link href="/">
           <a>
             <div className="transform transition-all duration-150 hover:scale-105">
-              <Image
-                className="rounded-full"
-                width="150"
-                height="150"
-                src="/assets/images/profile.jpg"
-                alt="profile avatar"
-              />
+              {logoUrl && (
+                <Image
+                  className="rounded-full"
+                  width="150"
+                  height="150"
+                  src={logoUrl}
+                  alt="profile avatar"
+                />
+              )}
             </div>
           </a>
         </Link>

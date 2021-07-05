@@ -4,7 +4,6 @@ import { NextSeoProps, NextSeo } from 'next-seo';
 
 import Alert from 'src/components/alert';
 import Header from 'src/components/header';
-import { APP_CONFIG } from 'src/utils';
 
 type MainLayoutProps = {
   meta?: NextSeoProps;
@@ -25,11 +24,12 @@ const MainLayout = (props: MainLayoutProps) => {
             title={headerProps.title}
             subtitle={headerProps.subtitle}
             headerLinks={headerProps.headerLinks}
+            logo={headerProps.logo}
           />
           {props.children}
 
           <div className="border-t border-gray-300 text-center py-8 text-sm">
-            © Copyright {new Date().getFullYear()} {APP_CONFIG.title}
+            © Copyright {new Date().getFullYear()} {headerProps.title}
           </div>
         </div>
       </div>
