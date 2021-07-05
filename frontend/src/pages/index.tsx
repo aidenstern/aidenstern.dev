@@ -21,7 +21,7 @@ const Index = (props: IndexProps) => {
         </div>
       </Section>
       {homePage.sections.map((section: any) => (
-        <Section key={section._key} title={section.name}>
+        <Section key={section._key} title={section.title}>
           {section.summaryItems.map((summaryItem: any) => (
             <SummaryItem
               key={summaryItem._key}
