@@ -20,7 +20,7 @@ type AppLayoutProps = {
 export const GlobalContext = createContext({} as GlobalContextType);
 
 const MyApp = ({ Component, pageProps }: AppLayoutProps) => {
-  const Layout = Component.layout || ((children) => <>{children}</>);
+  const Layout = Component.layout || ((props) => <>{props.children}</>);
   const { headerProps, preview, ...rest } = pageProps;
   return (
     <>
