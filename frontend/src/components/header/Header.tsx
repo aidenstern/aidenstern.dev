@@ -1,7 +1,6 @@
 import React from 'react';
 
 import imageUrlBuilder from '@sanity/image-url';
-import Image from 'next/image';
 import Link from 'next/link';
 
 import { sanityClient } from 'src/lib/sanity.server';
@@ -29,7 +28,7 @@ function Header(props: HeaderProps) {
           <a>
             <div className="transform transition-all duration-150 hover:scale-105">
               {logoUrl && (
-                <Image
+                <img
                   className="rounded-full"
                   width="150"
                   height="150"
