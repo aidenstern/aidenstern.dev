@@ -13,24 +13,22 @@ import { GlobalContext } from '../_app';
 
 type ArticleProps = {
   data: any;
+  slug: string;
   preview: boolean;
 };
 
 const Article = (props: ArticleProps) => {
   const router = useRouter();
   const { setState } = useContext(GlobalContext);
-  const { data = {}, preview } = props;
+  const { data = {}, preview, slug } = props;
 
   useEffect(() => {
     if (props.preview) {
       setState({ preview: true });
     }
-  });
+  }, []);
 
-  const slug = data?.article?.slug;
-  const {
-    data: { article },
-  } = usePreviewSubscription(articleQuery, {
+  const { data: { article = {} } = {} } = usePreviewSubscription(articleQuery, {
     params: { slug },
     initialData: data,
     enabled: preview && slug,
@@ -69,13 +67,14 @@ export async function getStaticPaths() {
   };
 }
 
-export async function getStaticProps({ params, preview = false }: any) {
+export async function getStaticProps({ params = {}, preview = false }: any) {
+  const { slug } = params;
   const article = await getClient(preview).fetch(articleQuery, {
-    slug: params.slug,
+    slug,
   });
 
   return {
-    props: { data: article, preview },
+    props: { data: article, preview, slug },
     revalidate: 1,
   };
 }
