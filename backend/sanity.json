@@ -31,6 +31,10 @@
     {
       "implements": "part:@sanity/production-preview/resolve-production-url",
       "path": "./utils/resolveProductionUrl.js" 
+    },
+    {
+      "name": "part:@sanity/desk-tool/structure",
+      "path": "./utils/deskStructure.js"
     }
   ]
 }

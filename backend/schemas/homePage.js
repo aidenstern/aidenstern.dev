@@ -1,18 +1,19 @@
 // sanity/schemas/homepage.js
 export default {
-  name: "homepage",
-  title: "Homepage",
+  name: "homePage",
+  title: "Home Page",
   type: "document",
+  __experimental_actions: [/*'create',*/ 'update', /*'delete',*/ 'publish'], 
   fields: [
     {
       name: "title",
-      title: "Homepage title",
+      title: "Home page title",
       type: "string",
       description: "What's the title of the homepage hero?",
     },
     {
       name: "subtitle",
-      title: "Homepage subtitle",
+      title: "Home page subtitle",
       type: "string",
       description: "What's the subtitle of the homepage hero?",
     },
