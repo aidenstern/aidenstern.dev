@@ -1,6 +1,6 @@
 /* eslint-disable */
 import React from "react";
-import { PrismLight as SyntaxHighlighter } from 'react-syntax-highlighter';
+import { PrismAsyncLight as SyntaxHighlighter } from 'react-syntax-highlighter';
 import js from 'react-syntax-highlighter/dist/cjs/languages/prism/javascript';
 
 import { tomorrow } from "react-syntax-highlighter/dist/cjs/styles/prism";
