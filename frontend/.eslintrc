@@ -52,8 +52,9 @@
             }
           }
         ],
+        "react/no-unused-prop-types": "warn",
         "no-underscore-dangle": "off",
-        "react/jsx-props-no-spreading": "warn",
+        "react/jsx-props-no-spreading": "off",
         "import/prefer-default-export": "off",
         "@typescript-eslint/no-unused-vars": "off",
         "unused-imports/no-unused-imports": "error",

@@ -31,5 +31,9 @@ export const articleBySlugQuery = `
 `;
 
 export const homePageQuery = `
-*[_type == "homePage"]
+*[_type == "homePage"][0]
+`;
+
+export const headerQuery = `
+*[_type == "header"][0]
 `;

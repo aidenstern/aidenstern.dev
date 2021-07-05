@@ -5,12 +5,14 @@ import { useRouter } from 'next/router';
 
 import DateFormatter from 'src/components/date';
 import Markdown from 'src/components/markdown';
-import Main from 'src/layout/main';
-import { articleQuery, articleSlugsQuery } from 'src/lib/queries';
+import MainLayout from 'src/layout/main';
+import { articleQuery, articleSlugsQuery, headerQuery } from 'src/lib/queries';
 import { usePreviewSubscription } from 'src/lib/sanity';
 import { sanityClient, getClient } from 'src/lib/sanity.server';
+import PageWithLayoutType from 'src/types/layout';
 
 type ArticleProps = {
+  headerProps: any;
   data: any;
   preview: boolean;
 };
@@ -31,13 +33,8 @@ const Article = ({ data = {}, preview }: ArticleProps) => {
     return <ErrorPage statusCode={404} />;
   }
 
-  const seo = {
-    title: article.title,
-    description: article.description,
-  };
-
   return (
-    <Main meta={seo} preview={preview}>
+    <>
       <div>
         <h1 className="mt-16 text-4xl text-gray-900 font-bold">
           {article.title}
@@ -51,9 +48,11 @@ const Article = ({ data = {}, preview }: ArticleProps) => {
       <div className="my-8">
         <Markdown content={article.content} />
       </div>
-    </Main>
+    </>
   );
 };
+
+(Article as PageWithLayoutType).layout = MainLayout;
 
 export async function getStaticPaths() {
   const paths = await sanityClient.fetch(articleSlugsQuery);
@@ -66,12 +65,13 @@ export async function getStaticPaths() {
 }
 
 export async function getStaticProps({ params, preview = false }: any) {
+  const header = await sanityClient.fetch(headerQuery);
   const article = await getClient(preview).fetch(articleQuery, {
     slug: params.slug,
   });
 
   return {
-    props: { data: article, preview },
+    props: { headerProps: header, data: article, preview },
     revalidate: 1,
   };
 }

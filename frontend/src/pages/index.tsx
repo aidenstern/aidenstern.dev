@@ -1,48 +1,46 @@
 import Section from 'src/components/section';
 import SummaryItem from 'src/components/summary-item';
-import Main from 'src/layout/main';
-import { homePageQuery } from 'src/lib/queries';
+import MainLayout from 'src/layout/main';
+import { headerQuery, homePageQuery } from 'src/lib/queries';
 import { sanityClient } from 'src/lib/sanity.server';
+import PageWithLayoutType from 'src/types/layout';
 
 type IndexProps = {
-  homepage: any;
+  headerProps: any;
+  homePage: any;
   preview: boolean;
 };
 
-const Index = ({ homepage, preview }: IndexProps) => {
-  const { sections } = homepage;
+const Index = (props: IndexProps) => {
+  const { homePage } = props;
   return (
-    <Main preview={preview}>
-      <Section title="About Me">
+    <>
+      <Section title={homePage.title}>
         <div className="mb-6">
-          <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Itaque
-            libero architecto aspernatur doloremque officiis culpa totam hic.
-            Aliquam placeat magnam beatae suscipit inventore natus enim quasi,
-            repudiandae, voluptatum aut aliquid.
-          </p>
+          <p>{homePage.description}</p>
         </div>
       </Section>
-      {sections.map((section: any) => (
-        <Section key={section.id} title={section.name}>
+      {homePage.sections.map((section: any) => (
+        <Section key={section._key} title={section.name}>
           {section.summaryItems.map((summaryItem: any) => (
             <SummaryItem
-              key={summaryItem.id}
+              key={summaryItem._key}
               name={summaryItem.name}
               description={summaryItem.description}
             />
           ))}
         </Section>
       ))}
-    </Main>
+    </>
   );
 };
 
+(Index as PageWithLayoutType).layout = MainLayout;
+
 export async function getStaticProps({ preview = false }) {
-  // Fetch global site settings from Strapi
-  const homepage = await sanityClient.fetch(homePageQuery);
-  // Pass the data to our page via props
-  return { props: { homepage: homepage[0], preview } };
+  const header = await sanityClient.fetch(headerQuery);
+  const homePage = await sanityClient.fetch(homePageQuery);
+  return { props: { headerProps: header, homePage, preview } };
 }
 
 export default Index;
