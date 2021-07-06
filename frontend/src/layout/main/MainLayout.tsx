@@ -18,7 +18,7 @@ const MainLayout = (props: MainLayoutProps) => {
     <>
       {props.meta ? <NextSeo {...props.meta} /> : <></>}
       <Alert preview={props.preview ? props.preview : false} />
-      <div className="relative">
+      <div className="max-w-screen-lg m-auto">
         <div className="p-8 relative max-w-screen-xl xs:p-24">
           <Header
             title={headerProps.title}
