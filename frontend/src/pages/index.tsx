@@ -1,5 +1,6 @@
 import { useContext, useEffect } from 'react';
 
+import ContactForm from 'src/components/contact-form';
 import Section from 'src/components/section';
 import SummaryItem from 'src/components/summary-item';
 import { homePageQuery } from 'src/lib/queries';
@@ -40,6 +41,11 @@ const Index = (props: IndexProps) => {
           ))}
         </Section>
       ))}
+      <Section title="Contact Me">
+        <div className="mb-6">
+          <ContactForm />
+        </div>
+      </Section>
     </>
   );
 };
