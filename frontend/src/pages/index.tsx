@@ -38,6 +38,7 @@ const Index = (props: IndexProps) => {
               key={summaryItem._key}
               name={summaryItem.name}
               description={summaryItem.description}
+              link={summaryItem.link}
             />
           ))}
         </Section>

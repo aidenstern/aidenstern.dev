@@ -45,6 +45,10 @@ export default {
                       type: "string",
                     },
                     {
+                      name: "link",
+                      type: "url"
+                    },
+                    {
                       name: "description",
                       type: "text",
                     },
