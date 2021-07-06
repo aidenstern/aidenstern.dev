@@ -14,7 +14,8 @@
     "@sanity/default-login",
     "@sanity/desk-tool",
     "markdown",
-    "@sanity/production-preview"
+    "@sanity/production-preview",
+    "vercel-deploy"
   ],
   "env": {
     "development": {
@@ -30,7 +31,7 @@
     },
     {
       "implements": "part:@sanity/production-preview/resolve-production-url",
-      "path": "./utils/resolveProductionUrl.js" 
+      "path": "./utils/resolveProductionUrl.js"
     },
     {
       "name": "part:@sanity/desk-tool/structure",
