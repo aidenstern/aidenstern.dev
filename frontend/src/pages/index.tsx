@@ -1,6 +1,7 @@
 import { useContext, useEffect } from 'react';
 
 import ContactForm from 'src/components/contact-form';
+import Markdown from 'src/components/markdown';
 import Section from 'src/components/section';
 import SummaryItem from 'src/components/summary-item';
 import { homePageQuery } from 'src/lib/queries';
@@ -27,7 +28,7 @@ const Index = (props: IndexProps) => {
     <>
       <Section title={homePage.title}>
         <div className="mb-6">
-          <p>{homePage.description}</p>
+          <Markdown content={homePage.description} />
         </div>
       </Section>
       {homePage.sections.map((section: any) => (
@@ -37,6 +38,7 @@ const Index = (props: IndexProps) => {
               key={summaryItem._key}
               name={summaryItem.name}
               description={summaryItem.description}
+              link={summaryItem.link}
             />
           ))}
         </Section>

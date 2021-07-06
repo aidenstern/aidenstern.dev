@@ -14,8 +14,8 @@ export default {
     {
       name: "description",
       title: "Home page description",
-      type: "text",
-      description: "What's the text of the homepage hero?",
+      type: "markdown",
+      description: "What's the content in the homepage hero?",
     },
     {
       name: "sections",
@@ -43,6 +43,10 @@ export default {
                     {
                       name: "name",
                       type: "string",
+                    },
+                    {
+                      name: "link",
+                      type: "url"
                     },
                     {
                       name: "description",
