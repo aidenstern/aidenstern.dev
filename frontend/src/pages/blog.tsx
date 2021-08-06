@@ -21,7 +21,7 @@ export const Blog = (props: BlogProps) => {
     }
   });
 
-  return (
+  return props && props.articles && props.articles.length > 0 ? (
     <Section title="All Blog Posts">
       {props.articles.map((article: any) => (
         <SummaryItem
@@ -33,6 +33,11 @@ export const Blog = (props: BlogProps) => {
         />
       ))}
     </Section>
+  ) : (
+    <SummaryItem
+      name="Coming soon!"
+      description="The first blog posts are currently under construction."
+    />
   );
 };
 
