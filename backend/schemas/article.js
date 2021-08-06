@@ -25,6 +25,12 @@ export default {
       type: "datetime",
     },
     {
+      type: "boolean",
+      name: "active",
+      title: "Published",
+      description: "Set to published when this article should be visible on the front-end"
+    },
+    {
       type: "markdown",
       description: "A Github flavored markdown field with image uploading",
       name: "content",
