@@ -7,24 +7,24 @@ const articleFields = `
 `;
 
 export const indexQuery = `
-*[_type == "article" && published == true] | order(publishedAt desc) {
+*[_type == "article" && active == true] | order(publishedAt desc) {
   ${articleFields}
 }`;
 
 export const articleQuery = `
 {
-  "article": *[_type == "article" && published == true && slug.current == $slug] | order(_updatedAt desc) | [0] {
+  "article": *[_type == "article" && active == true && slug.current == $slug] | order(_updatedAt desc) | [0] {
     content,
     ${articleFields}
   }
 }`;
 
 export const articleSlugsQuery = `
-*[_type == "article" && published == true && defined(slug.current)][].slug.current
+*[_type == "article" && active == true && defined(slug.current)][].slug.current
 `;
 
 export const articleBySlugQuery = `
-*[_type == "article" && published == true && slug.current == $slug][0] {
+*[_type == "article" && active == true && slug.current == $slug][0] {
   ${articleFields}
 }
 `;
