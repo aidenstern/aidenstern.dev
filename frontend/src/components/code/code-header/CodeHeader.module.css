@@ -1,0 +1,119 @@
+.language-badge {
+  padding: 0.1rem 0.3rem 0.15rem 0.3rem;
+  margin-top: -0.7rem;
+  border-bottom-left-radius: 4px;
+  border-bottom-right-radius: 4px;
+  background: #675151;
+  color: #eee;
+}
+
+/* Wrapper for header (language badge and copy button */
+.badge-btn-wrap {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: sticky;
+  background: #2d2d2d;
+  top: 0;
+  left: 0;
+  right: 0;
+  line-height: 15px !important;
+}
+
+
+/* Copy button */
+.btn-copy {
+  cursor: pointer;
+  padding: 0.3rem 0.6rem;
+  border-radius: 5px;
+  background: transparent;
+  font-weight: 600;
+  color: #888598;
+  user-select: none;
+  margin: 0.2rem;
+  border: none;
+  transition: none;
+}
+.btn-copy:hover {
+  color: #b7b5bf;
+}
+.btn-copy:focus {
+  outline-width: 1px;
+}
+
+/* Custom styles for particular languages */
+.language-badge-css {
+  background: #c6a22d;
+}
+.language-badge-cpp {
+  background: #243994;
+}
+.language-badge-diff {
+  background: #802121;
+}
+.language-badge-flow {
+  background: #5b122b;
+}
+.language-badge-git {
+  background: #ab6a1b;
+}
+.language-badge-graphql {
+  background: #ce624a;
+}
+.language-badge-html {
+  background: #47418c;
+}
+.language-badge-java {
+  background: #509750;
+}
+.language-badge-js,
+.language-badge-javascript {
+  background: #c7a755;
+}
+.language-badge-jsx {
+  background: #627eee;
+}
+.language-badge-json {
+  background: #33963d;
+}
+.language-badge-mathml,
+.language-badge-matlab {
+  content: "MATHML";
+}
+.language-badge-md {
+  background: #68216f;
+}
+.language-badge-mdx {
+  background: #406544;
+}
+.language-badge-r {
+  background: #b34a4a;
+}
+.language-badge-sass {
+  background: #916720;
+}
+.language-badge-scss {
+  background: #6c1d87;
+}
+.language-badge-shell {
+  background: #7e6260;
+}
+.language-badge-sql {
+  background: #61b2c1;
+}
+.language-badge-swift {
+  background: #cb782f;
+}
+.language-badge-ts,
+.language-badge-typescript {
+  background: #8241b0;
+}
+.language-badge-tsx {
+  background: #8241b0;
+}
+.language-badge-xml {
+  background: #916720;
+}
+.language-badge-yaml {
+  background: #5c7d28;
+}
