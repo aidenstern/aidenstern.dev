@@ -8,17 +8,12 @@ type MarkdownProps = {
   content: string;
 };
 
-import CodeBlock from "src/components/code-block";
+import Code from "src/components/code";
 
 const components = {
   img: ({ ...imgProps }: any) => <img src={imgProps.src} alt={imgProps.alt} />,
   code: ({ node, inline, className, children, ...props }: any) => (
-    <CodeBlock
-      inline={inline}
-      className={className}
-      children={children}
-      props={props}
-    />
+    <Code inline={inline} className={className} {...props}>{children}</Code>
   ),
 };
 
