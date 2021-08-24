@@ -8,12 +8,10 @@ import tomorrow from 'react-syntax-highlighter/dist/cjs/styles/prism/tomorrow';
 SyntaxHighlighter.registerLanguage('js', js);
 SyntaxHighlighter.registerLanguage('ts', ts);
 
-function CodeBlock({ inline, className, children, ...props }: any) {
-  const match = /language-(\w+)/.exec(className || '');
-
-  return !inline && match ? (
+function CodeBlock({ inline, language, children, ...props }: any) {
+  return !inline && language ? (
     <SyntaxHighlighter
-      language={match[1]}
+      language={language}
       style={tomorrow}
       wrapLines={false}
       showLineNumbers={false}
@@ -21,7 +19,7 @@ function CodeBlock({ inline, className, children, ...props }: any) {
       {children}
     </SyntaxHighlighter>
   ) : (
-    <code className={className} {...props}>
+    <code className={language} {...props}>
       {children}
     </code>
   );

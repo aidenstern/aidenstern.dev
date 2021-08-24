@@ -1,7 +1,9 @@
 import React from 'react';
 
+import codeHeaderStyles from './CodeHeader.module.css';
+
 type CodeHeaderProps = {
-  language: string;
+  language: string | undefined;
   textToCopy: string;
 };
 
@@ -16,9 +18,19 @@ function copyToClipboard(content: string) {
 
 const CodeHeader = (props: CodeHeaderProps) => {
   return (
-    <div className="flex justify-between">
-      <span>{props.language}</span>
-      <button type="button" onClick={() => copyToClipboard(props.textToCopy)}>
+    <div className={`${codeHeaderStyles['badge-btn-wrap']} text-xs -mb-6 px-4`}>
+      <div
+        className={`${codeHeaderStyles['language-badge']} ${
+          codeHeaderStyles[`language-badge-${props.language}`]
+        }`}
+      >
+        {(props.language || '').toUpperCase()}
+      </div>
+      <button
+        className={codeHeaderStyles['btn-copy']}
+        type="button"
+        onClick={() => copyToClipboard(props.textToCopy)}
+      >
         Copy
       </button>
     </div>
