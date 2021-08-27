@@ -13,7 +13,7 @@ function CodeBlock({ inline, language, children, ...props }: any) {
     <SyntaxHighlighter
       language={language}
       style={tomorrow}
-      wrapLines={false}
+      wrapLines
       showLineNumbers={false}
     >
       {children}

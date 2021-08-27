@@ -23,6 +23,11 @@ body {
   overflow: overlay;
 }
 
+/* CODE */
+code > span:last-child {
+  display: none;
+}
+
 /* SCROLLBAR */
 /* width */
 @layer base {
